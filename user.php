@@ -1,6 +1,10 @@
 <?php
 
+require_once ('database.php')
+
+
 Class User{
+  
 public function get_all_users(){
 
    $dbh = db_connect();
