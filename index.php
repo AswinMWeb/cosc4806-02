@@ -10,5 +10,3 @@ print_r($users_list);
 
 
 
-
-?>
