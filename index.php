@@ -1,13 +1,26 @@
 <?php
+session_start();
+if (!isset($_SESSION['authenticated'])) {
+    header('Location: /login.php');
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aswin</title>
+</head>
+<body>
 
-require_once('user.php');
+    <h1>Assignment 1</h1>
 
-$user = new User();
+    <p>Welcome, <?= htmlspecialchars($_SESSION['username']) ?></p>
 
-$users_list = $user->get_all_users();
+    <p>Today is <?= date('l, F j, Y') ?></p>
 
-echo "<pre>";
-print_r($users_list);
+    <footer>
+        <p><a href="/logout.php">Logout</a></p>
+    </footer>
 
-
-
+</body>
+</html>
